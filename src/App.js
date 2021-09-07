@@ -2,10 +2,10 @@ import './App.css';
 import {useState} from 'react';
 
 function App() {
-  const {weight, setWeight} = useState(90);
-  const {intensity, setIntensity} = useState(1.3);
-  const {gender, setGender} = useState('male');
-  const {result, setResult} = useState(0);
+  const [weight, setWeight] = useState(90);
+  const [intensity, setIntensity] = useState(1.3);
+  const [gender, setGender] = useState('male');
+  const [result, setResult] = useState(0);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -26,11 +26,13 @@ function App() {
     <form onSubmit={handleSubmit}>
       <div>
         <label>Weight</label>
-        <input type="number" step="1" value={weight} onChange={(e) => setWeight(e.target.value)}></input>
+        <input type="number" step="1" value={weight}
+        onChange={(e) => setWeight(e.target.value)}></input>
       </div>
       <div>
         <label>Intensity</label>
-        <select value={intensity} onChange={(e) => setIntensity(e.target.value)}>
+        <select value={intensity}
+        onChange={(e) => setIntensity(e.target.value)}>
           <option value="1.3">Light</option>
           <option value="1.5">Usual</option>
           <option value="1.7">Moderate</option>
@@ -40,11 +42,13 @@ function App() {
       </div>
       <div>
         <label>Gender</label>
-        <input type="radio" value="male" defaultChecked onChange={(e) => setGender(e.target.value)} /><label>Male</label>
-        <input type="radio" value="female" onChange={(e) => setGender(e.target.value)} /><label>Female</label>
+        <input type="radio" value="male" defaultChecked 
+        onChange={(e) => setGender(e.target.value)} /><label>Male</label>
+        <input type="radio" value="female"
+        onChange={(e) => setGender(e.target.value)} /><label>Female</label>
       </div>
       <div>
-        <output>{result}</output>
+        <output>{result.toFixed(0)}</output>
       </div>
       <button>Calculate</button>
     </form>
